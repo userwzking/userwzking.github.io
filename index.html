@@ -40,27 +40,57 @@
         }
 
         /* 顶部目录样式 */
-        .directory {
-            position: sticky;
-            top: 0;
-            background-color: rgba(0, 0, 0, 0.5);
-            padding: 15px 0;
-            text-align: center;
-            z-index: 10;
-        }
+.directory {
+    display: flex;  /* 使用 Flexbox 布局 */
+    justify-content: center;  /* 链接水平居中 */
+    align-items: center;  /* 链接垂直居中 */
+    background-color: rgba(0, 0, 0, 0.7);  /* 背景色 */
+    padding: 10px 0;  /* 上下内边距 */
+    width: 100%;  /* 确保导航栏铺满整个屏幕宽度 */
+    position: fixed;  /* 固定在页面顶部 */
+    top: 0;  /* 顶部对齐 */
+    left: 0;  /* 左对齐 */
+    z-index: 1000;  /* 确保导航栏在最上层 */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);  /* 添加阴影 */
+    transition: background-color 0.3s ease;  /* 背景颜色过渡效果 */
+}
 
-        .directory a {
-            color: #ffffff;
-            font-size: 1.25rem;
-            margin: 0 15px;
-            text-decoration: none;
-            font-weight: 600;
-            text-transform: uppercase;
-        }
+.directory a {
+    color: #ffffff;
+    font-size: 1.25rem;
+    margin: 0 20px;
+    text-decoration: none;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 8px 16px;
+    border-radius: 5px;
+    display: inline-flex;  /* 使用 inline-flex 使图标和文字水平排列 */
+    align-items: center;  /* 使图标和文字垂直居中 */
+    transition: all 0.3s ease;  /* 平滑过渡效果 */
+}
 
-        .directory a:hover {
-            color: #FF5722;
-        }
+.directory a:hover {
+    color: #FF5722;
+    background-color: rgba(255, 255, 255, 0.2);  /* 鼠标悬停时改变背景颜色 */
+    transform: scale(1.1);  /* 鼠标悬停时放大 */
+}
+
+.directory a i {
+    margin-right: 10px;  /* 图标与文本之间的间距 */
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .directory {
+        padding: 10px 0;
+    }
+
+    .directory a {
+        font-size: 1rem;
+        margin: 0 10px;
+    }
+}
+
 
         /* 标题 */
         h1 {
@@ -152,15 +182,28 @@
 </head>
 <body>
 
-    <!-- 目录 -->
-    <div class="directory">
-        <a href="#new-road">新路</a>
-        <a href="#cet">考证</a>
-        <a href="#ai">在线AI</a>
-        <a href="#entertainment">娱乐</a>
-        <a href="#network">网络知识平台</a>
-        <a href="#video">视频平台</a>
-    </div>
+  <!-- 目录 -->
+<div class="directory">
+    <a href="#new-road">
+        <i class="fas fa-road"></i> 新路
+    </a>
+    <a href="#cet">
+        <i class="fas fa-graduation-cap"></i> 考证
+    </a>
+    <a href="#ai">
+        <i class="fas fa-robot"></i> 在线AI
+    </a>
+    <a href="#entertainment">
+        <i class="fas fa-film"></i> 娱乐
+    </a>
+    <a href="#network">
+        <i class="fas fa-network-wired"></i> 网络知识平台
+    </a>
+    <a href="#video">
+        <i class="fas fa-video"></i> 视频平台
+    </a>
+</div>
+
 
     <div class="container" id="main-container">
         <h1>小振快捷网址首页</h1>
@@ -169,27 +212,27 @@
         <section id="new-road">
             <h2>新路</h2>
             <div class="link-container">
-                <div class="link-card new-road" onclick="window.location.href='https://www.mubu.com/doc/BM_oE-x3Q2'">
+                <div class="link-card new-road" onclick="window.open('https://www.mubu.com/doc/BM_oE-x3Q2', '_blank')">
                     <i class="fas fa-school"></i>
                     <p>各类学校情况</p>
                 </div>
-                <div class="link-card new-road" onclick="window.location.href='https://wiki.nroad.com.cn/'">
+                <div class="link-card new-road" onclick="window.open('https://wiki.nroad.com.cn/', '_blank')">
                     <i class="fas fa-wikipedia-w"></i>
                     <p>Wiki</p>
                 </div>
-                <div class="link-card new-road" onclick="window.location.href='https://web.soc.pro.wenet.group/'">
+                <div class="link-card new-road" onclick="window.open('https://web.soc.pro.wenet.group/', '_blank')">
                     <i class="fas fa-cogs"></i>
                     <p>SOC</p>
                 </div>
-                <div class="link-card new-road" onclick="window.location.href='https://bas.wenet.com.cn/'">
+                <div class="link-card new-road" onclick="window.open('https://bas.wenet.com.cn/', '_blank')">
                     <i class="fas fa-cogs"></i>
                     <p>BAS</p>
                 </div>
-                <div class="link-card new-road" onclick="window.location.href='https://platform.wenet.com.cn/'">
+                <div class="link-card new-road" onclick="window.open('https://platform.wenet.com.cn/', '_blank')">
                     <i class="fas fa-shopping-cart"></i>
                     <p>商城</p>
                 </div>
-                <div class="link-card new-road" onclick="window.location.href='http://ykf.7moor.com/'">
+                <div class="link-card new-road" onclick="window.open('http://ykf.7moor.com/', '_blank')">
                     <i class="fas fa-headset"></i>
                     <p>云客服</p>
                 </div>
@@ -200,15 +243,15 @@
         <section id="cet">
             <h2>考证</h2>
             <div class="link-container">
-                <div class="link-card cet" onclick="window.location.href='https://cet-bm.neea.edu.cn/'">
+                <div class="link-card cet" onclick="window.open('https://cet-bm.neea.edu.cn/', '_blank')">
                     <i class="fas fa-graduation-cap"></i>
                     <p>四六级官网</p>
                 </div>
-                <div class="link-card cet" onclick="window.location.href='https://zhenti.burningvocabulary.cn/cet4'">
+                <div class="link-card cet" onclick="window.open('https://zhenti.burningvocabulary.cn/cet4', '_blank')">
                     <i class="fas fa-book"></i>
                     <p>四级真题</p>
                 </div>
-                <div class="link-card cet" onclick="window.location.href='https://ncre.neea.edu.cn/'">
+                <div class="link-card cet" onclick="window.open('https://ncre.neea.edu.cn/', '_blank')">
                     <i class="fas fa-laptop-code"></i>
                     <p>计算机等级</p>
                 </div>
@@ -219,27 +262,27 @@
         <section id="ai">
             <h2>在线AI</h2>
             <div class="link-container">
-                <div class="link-card ai" onclick="window.location.href='https://openai.com/index/morgan-stanley/'">
+                <div class="link-card ai" onclick="window.open('https://openai.com/index/morgan-stanley/', '_blank')">
                     <i class="fab fa-robot"></i>
                     <p>国外OpenAI</p>
                 </div>
-                <div class="link-card ai" onclick="window.location.href='https://kelaode.ai/'">
+                <div class="link-card ai" onclick="window.open('https://kelaode.ai/', '_blank')">
                     <i class="fab fa-robot"></i>
                     <p>RawChat</p>
                 </div>
-                <div class="link-card ai" onclick="window.location.href='https://www.doubao.com/chat/'">
+                <div class="link-card ai" onclick="window.open('https://www.doubao.com/chat/', '_blank')">
                     <i class="fab fa-robot"></i>
                     <p>豆包</p>
                 </div>
-                <div class="link-card ai" onclick="window.location.href='https://chat.shared-hub.com/'">
+                <div class="link-card ai" onclick="window.open('https://chat.shared-hub.com/', '_blank')">
                     <i class="fab fa-robot"></i>
                     <p>国内Chat</p>
                 </div>
-                <div class="link-card ai" onclick="window.location.href='https://kimi.moonshot.cn/'">
+                <div class="link-card ai" onclick="window.open('https://kimi.moonshot.cn/', '_blank')">
                     <i class="fab fa-robot"></i>
                     <p>Kimi</p>
                 </div>
-                <div class="link-card ai" onclick="window.location.href='https://xinghuo.xfyun.cn/'">
+                <div class="link-card ai" onclick="window.open('https://xinghuo.xfyun.cn/', '_blank')">
                     <i class="fab fa-robot"></i>
                     <p>讯飞星火</p>
                 </div>
@@ -250,35 +293,35 @@
         <section id="entertainment">
             <h2>娱乐</h2>
             <div class="link-container">
-                <div class="link-card entertainment" onclick="window.location.href='https://weibo.com/'">
+                <div class="link-card entertainment" onclick="window.open('https://weibo.com/', '_blank')">
                     <i class="fab fa-weibo"></i>
                     <p>微博</p>
                 </div>
-                <div class="link-card entertainment" onclick="window.location.href='https://www.4399.com/'">
+                <div class="link-card entertainment" onclick="window.open('https://www.4399.com/', '_blank')">
                     <i class="fas fa-gamepad"></i>
                     <p>4399</p>
                 </div>
-                <div class="link-card entertainment" onclick="window.location.href='https://www.zhihu.com/'">
+                <div class="link-card entertainment" onclick="window.open('https://www.zhihu.com/', '_blank')">
                     <i class="fab fa-zhihu"></i>
                     <p>知乎</p>
                 </div>
-                <div class="link-card entertainment" onclick="window.location.href='https://v.qq.com/'">
+                <div class="link-card entertainment" onclick="window.open('https://v.qq.com/', '_blank')">
                     <i class="fab fa-qq"></i>
                     <p>腾讯视频</p>
                 </div>
-                <div class="link-card entertainment" onclick="window.location.href='https://www.kugou.com/'">
+                <div class="link-card entertainment" onclick="window.open('https://www.kugou.com/', '_blank')">
                     <i class="fab fa-kugou"></i>
                     <p>酷狗</p>
                 </div>
-                <div class="link-card entertainment" onclick="window.location.href='https://music.163.com/'">
+                <div class="link-card entertainment" onclick="window.open('https://music.163.com/', '_blank')">
                     <i class="fab fa-spotify"></i>
                     <p>网易云</p>
                 </div>
-                <div class="link-card entertainment" onclick="window.location.href='https://www.bilibili.com/'">
+                <div class="link-card entertainment" onclick="window.open('https://www.bilibili.com/', '_blank')">
                     <i class="fab fa-bilibili"></i>
                     <p>哔站</p>
                 </div>
-                <div class="link-card entertainment" onclick="window.location.href='https://www.douyin.com/'">
+                <div class="link-card entertainment" onclick="window.open('https://www.douyin.com/', '_blank')">
                     <i class="fab fa-tiktok"></i>
                     <p>抖音</p>
                 </div>
@@ -289,19 +332,19 @@
         <section id="network">
             <h2>网络知识平台</h2>
             <div class="link-container">
-                <div class="link-card network" onclick="window.location.href='https://github.com/'">
+                <div class="link-card network" onclick="window.open('https://github.com/', '_blank')">
                     <i class="fab fa-github"></i>
                     <p>GitHub</p>
                 </div>
-                <div class="link-card network" onclick="window.location.href='https://www.csdn.net/'">
+                <div class="link-card network" onclick="window.open('https://www.csdn.net/', '_blank')">
                     <i class="fab fa-csdn"></i>
                     <p>CSDN</p>
                 </div>
-                <div class="link-card network" onclick="window.location.href='https://www.runoob.com/'">
+                <div class="link-card network" onclick="window.open('https://www.runoob.com/', '_blank')">
                     <i class="fab fa-html5"></i>
                     <p>菜鸟教程</p>
                 </div>
-                <div class="link-card network" onclick="window.location.href='https://www.cnblogs.com/'">
+                <div class="link-card network" onclick="window.open('https://www.cnblogs.com/', '_blank')">
                     <i class="fab fa-blogger"></i>
                     <p>博客园</p>
                 </div>
@@ -312,15 +355,15 @@
         <section id="video">
             <h2>视频平台</h2>
             <div class="link-container">
-                <div class="link-card video" onclick="window.location.href='https://www.bilibili.com/'">
+                <div class="link-card video" onclick="window.open('https://www.bilibili.com/', '_blank')">
                     <i class="fab fa-bilibili"></i>
                     <p>哔站</p>
                 </div>
-                <div class="link-card video" onclick="window.location.href='https://www.douyin.com/'">
+                <div class="link-card video" onclick="window.open('https://www.douyin.com/', '_blank')">
                     <i class="fab fa-tiktok"></i>
                     <p>抖音</p>
                 </div>
-                <div class="link-card video" onclick="window.location.href='https://kuaishou.cn/'">
+                <div class="link-card video" onclick="window.open('https://kuaishou.cn/', '_blank')">
                     <i class="fab fa-vid"></i>
                     <p>快手</p>
                 </div>
