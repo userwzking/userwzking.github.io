@@ -40,57 +40,56 @@
         }
 
         /* 顶部目录样式 */
-.directory {
-    display: flex;  /* 使用 Flexbox 布局 */
-    justify-content: center;  /* 链接水平居中 */
-    align-items: center;  /* 链接垂直居中 */
-    background-color: rgba(0, 0, 0, 0.7);  /* 背景色 */
-    padding: 10px 0;  /* 上下内边距 */
-    width: 100%;  /* 确保导航栏铺满整个屏幕宽度 */
-    position: fixed;  /* 固定在页面顶部 */
-    top: 0;  /* 顶部对齐 */
-    left: 0;  /* 左对齐 */
-    z-index: 1000;  /* 确保导航栏在最上层 */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);  /* 添加阴影 */
-    transition: background-color 0.3s ease;  /* 背景颜色过渡效果 */
-}
+        .directory {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px 0;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            transition: background-color 0.3s ease;
+        }
 
-.directory a {
-    color: #ffffff;
-    font-size: 1.25rem;
-    margin: 0 20px;
-    text-decoration: none;
-    font-weight: 600;
-    text-transform: uppercase;
-    padding: 8px 16px;
-    border-radius: 5px;
-    display: inline-flex;  /* 使用 inline-flex 使图标和文字水平排列 */
-    align-items: center;  /* 使图标和文字垂直居中 */
-    transition: all 0.3s ease;  /* 平滑过渡效果 */
-}
+        .directory a {
+            color: #ffffff;
+            font-size: 1.25rem;
+            margin: 0 20px;
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            padding: 8px 16px;
+            border-radius: 5px;
+            display: inline-flex;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
 
-.directory a:hover {
-    color: #FF5722;
-    background-color: rgba(255, 255, 255, 0.2);  /* 鼠标悬停时改变背景颜色 */
-    transform: scale(1.1);  /* 鼠标悬停时放大 */
-}
+        .directory a:hover {
+            color: #FF5722;
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: scale(1.1);
+        }
 
-.directory a i {
-    margin-right: 10px;  /* 图标与文本之间的间距 */
-}
+        .directory a i {
+            margin-right: 10px;
+        }
 
-/* 响应式设计 */
-@media (max-width: 768px) {
-    .directory {
-        padding: 10px 0;
-    }
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .directory {
+                padding: 10px 0;
+            }
 
-    .directory a {
-        font-size: 1rem;
-        margin: 0 10px;
-    }
-}
-
+            .directory a {
+                font-size: 1rem;
+                margin: 0 10px;
+            }
+        }
 
         /* 标题 */
         h1 {
@@ -101,6 +100,17 @@
             text-transform: uppercase;
             letter-spacing: 4px;
             text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.4);
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            color: #ffffff;
+            margin-bottom: 20px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
             animation: fadeIn 1.5s ease-in-out;
         }
 
@@ -154,6 +164,8 @@
         .link-card.entertainment { background-color: #FFC107; }
         .link-card.network { background-color: #3F51B5; }
         .link-card.video { background-color: #E91E63; }
+        .link-card.learning { background-color: #9C27B0; }
+        .link-card.tools { background-color: #FF9800; }
 
         /* 渐显动画 */
         @keyframes fadeIn {
@@ -169,11 +181,13 @@
         /* 响应式设计 */
         @media (max-width: 768px) {
             h1 { font-size: 3.5rem; }
+            h2 { font-size: 2rem; }
             .link-container { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
         }
 
         @media (max-width: 500px) {
             h1 { font-size: 2.5rem; }
+            h2 { font-size: 1.5rem; }
             .link-container { grid-template-columns: 1fr; }
         }
     </style>
@@ -202,8 +216,13 @@
     <a href="#video">
         <i class="fas fa-video"></i> 视频平台
     </a>
+    <a href="#learning">
+        <i class="fas fa-book"></i> 学习平台
+    </a>
+    <a href="#tools">
+        <i class="fas fa-tools"></i> 工具
+    </a>
 </div>
-
 
     <div class="container" id="main-container">
         <h1>小振快捷网址首页</h1>
@@ -286,6 +305,10 @@
                     <i class="fab fa-robot"></i>
                     <p>讯飞星火</p>
                 </div>
+                <div class="link-card ai" onclick="window.open('https://chat.deepseek.com//', '_blank')">
+                    <i class="fab fa-robot"></i>
+                    <p>deepseek</p>
+                </div>
             </div>
         </section>
 
@@ -366,6 +389,52 @@
                 <div class="link-card video" onclick="window.open('https://kuaishou.cn/', '_blank')">
                     <i class="fab fa-vid"></i>
                     <p>快手</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 学习平台 -->
+        <section id="learning">
+            <h2>学习平台</h2>
+            <div class="link-container">
+                <div class="link-card learning" onclick="window.open('https://www.coursera.org/', '_blank')">
+                    <i class="fas fa-graduation-cap"></i>
+                    <p>Coursera</p>
+                </div>
+                <div class="link-card learning" onclick="window.open('https://www.edx.org/', '_blank')">
+                    <i class="fas fa-book"></i>
+                    <p>edX</p>
+                </div>
+                <div class="link-card learning" onclick="window.open('https://www.khanacademy.org/', '_blank')">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <p>Khan Academy</p>
+                </div>
+                <div class="link-card learning" onclick="window.open('https://www.udemy.com/', '_blank')">
+                    <i class="fas fa-laptop"></i>
+                    <p>Udemy</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 工具 -->
+        <section id="tools">
+            <h2>工具</h2>
+            <div class="link-container">
+                <div class="link-card tools" onclick="window.open('https://www.canva.com/', '_blank')">
+                    <i class="fas fa-paint-brush"></i>
+                    <p>Canva</p>
+                </div>
+                <div class="link-card tools" onclick="window.open('https://www.notion.so/', '_blank')">
+                    <i class="fas fa-sticky-note"></i>
+                    <p>Notion</p>
+                </div>
+                <div class="link-card tools" onclick="window.open('https://www.figma.com/', '_blank')">
+                    <i class="fas fa-palette"></i>
+                    <p>Figma</p>
+                </div>
+                <div class="link-card tools" onclick="window.open('https://www.trello.com/', '_blank')">
+                    <i class="fas fa-tasks"></i>
+                    <p>Trello</p>
                 </div>
             </div>
         </section>
