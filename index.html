@@ -14,12 +14,11 @@
             background: linear-gradient(135deg, #2980b9, #8e44ad); /* 背景渐变 */
             display: flex;
             justify-content: center;
-            align-items: flex-start;
-            height: 100vh;
-            color: white;
-            overflow: hidden;
+            align-items: stretch;
+            min-height: 100vh;
             box-sizing: border-box;
             flex-direction: column;
+            padding-top: 60px;
         }
 
         /* 容器样式 */
@@ -34,8 +33,9 @@
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
             backdrop-filter: blur(10px);
             animation: fadeInUp 1.5s ease-in-out forwards;
-            max-height: 80vh;
-            overflow-y: auto;
+            height: 100vh;
+            /* max-height: 80vh; */
+            /* overflow-y: auto; */
             margin-top: 20px;
         }
 
@@ -190,6 +190,25 @@
             h2 { font-size: 1.5rem; }
             .link-container { grid-template-columns: 1fr; }
         }
+        body {
+            padding-top: 70px;
+        }
+
+        .container {
+            height: calc(100vh - 90px);
+            margin-top: 0;
+            overflow-y: auto;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding-top: 60px;
+            }
+            .container {
+                height: calc(100vh - 80px);
+                padding: 30px 20px;
+            }
+        }
     </style>
     <!-- 添加图标库（Font Awesome）-->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
@@ -230,6 +249,7 @@
 
     <div class="container" id="main-container">
         <h1>小振快捷网址首页</h1>
+
 
         <!-- 新路 -->
         <section id="new-road">
@@ -472,5 +492,33 @@
         </section>
     </div>
 
+<script>
+// 禁止右键菜单
+document.addEventListener('contextmenu', e => e.preventDefault());
+
+// 禁用开发者工具快捷键
+const forbidKeys = {
+  F12: true,
+  'Ctrl+Shift+I': true,
+  'Ctrl+Shift+J': true,
+  'Ctrl+Shift+C': true
+};
+
+document.addEventListener('keydown', (e) => {
+  const keyComb = `${e.ctrlKey ? 'Ctrl+' : ''}${e.shiftKey ? 'Shift+' : ''}${e.key}`;
+  if (forbidKeys[e.key] || forbidKeys[keyComb]) e.preventDefault();
+});
+
+// 防调试检测
+(function() {
+  const re = /x/;
+  console.log(re);
+  re.toString = function() {
+    document.body.innerHTML = '检测到开发者工具，操作被禁止！';
+    window.location.reload();
+    return '';
+  };
+})();
+</script>
 </body>
 </html>
