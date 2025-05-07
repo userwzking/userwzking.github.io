@@ -2,255 +2,216 @@
 <html lang="zh">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>小振常用网址</title>
+    
+    <!-- Font Awesome CDN -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    
     <style>
-        /* 全局样式 */
+        :root {
+            --primary-color: #6C5CE7;
+            --secondary-color: #FF7675;
+            --bg-gradient: linear-gradient(135deg, #6C5CE7, #FF9FF3);
+            --card-hover: rgba(255, 255, 255, 0.05);
+            --text-color: #FFFFFF;
+            --font-family: 'Segoe UI', 'Noto Sans SC', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            font-family: var(--font-family);
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #2980b9, #8e44ad); /* 背景渐变 */
-            display: flex;
-            justify-content: center;
-            align-items: stretch;
+            background: var(--bg-gradient);
             min-height: 100vh;
-            box-sizing: border-box;
-            flex-direction: column;
-            padding-top: 60px;
-        }
-
-        /* 容器样式 */
-        .container {
-            text-align: center;
-            background-color: rgba(255, 255, 255, 0.1); /* 透明背景 */
-            padding: 50px 40px;
-            border-radius: 25px;
-            width: 90%;
-            max-width: 1200px;
-            min-width: 300px;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(10px);
-            animation: fadeInUp 1.5s ease-in-out forwards;
-            height: 100vh;
-            /* max-height: 80vh; */
-            /* overflow-y: auto; */
-            margin-top: 20px;
-        }
-
-        /* 顶部目录样式 */
-        .directory {
             display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: rgba(0, 0, 0, 0.7);
-            padding: 10px 0;
-            width: 100%;
+            flex-direction: column;
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+
+        .hamburger-menu {
+            position: fixed;
+            right: 20px;
+            top: 15px;
+            font-size: 1.8rem;
+            z-index: 1001;
+            color: white;
+            cursor: pointer;
+            background: rgba(0,0,0,0.3);
+            padding: 0.5rem;
+            border-radius: 8px;
+            display: none;
+        }
+
+        .directory {
             position: fixed;
             top: 0;
             left: 0;
+            right: 0;
+            background: rgba(20, 20, 20, 0.95);
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 0.5rem 0;
             z-index: 1000;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-            transition: background-color 0.3s ease;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.3);
+            transition: background 0.3s;
         }
 
         .directory a {
-            color: #ffffff;
-            font-size: 1.25rem;
-            margin: 0 20px;
+            color: #fff;
             text-decoration: none;
-            font-weight: 600;
-            text-transform: uppercase;
-            padding: 8px 16px;
-            border-radius: 5px;
-            display: inline-flex;
+            margin: 0.5rem 1rem;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 12px;
+            transition: all 0.3s;
+            display: flex;
             align-items: center;
-            transition: all 0.3s ease;
         }
 
         .directory a:hover {
-            color: #FF5722;
-            background-color: rgba(255, 255, 255, 0.2);
-            transform: scale(1.1);
+            background: var(--secondary-color);
+            transform: translateY(-2px);
         }
 
         .directory a i {
             margin-right: 10px;
         }
 
-        /* 响应式设计 */
-        @media (max-width: 768px) {
-            .directory {
-                padding: 10px 0;
-            }
-
-            .directory a {
-                font-size: 1rem;
-                margin: 0 10px;
-            }
+        .container {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            margin: 2rem auto;
+            padding: 2rem 3rem;
+            max-width: 1400px;
+            width: 90%;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            animation: fadeInUp 1.2s ease-out;
+            flex: 1;
+            overflow-y: auto;
         }
 
-        /* 标题 */
-        h1 {
-            font-size: 4rem;
-            color: #ffffff;
-            margin-bottom: 30px;
-            font-weight: 700;
+        h1, h2 {
+            text-align: center;
+            margin-bottom: 2rem;
             text-transform: uppercase;
-            letter-spacing: 4px;
-            text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.4);
-            animation: fadeIn 1.5s ease-in-out;
+            text-shadow: 2px 2px 12px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            font-size: 3.5rem;
         }
 
         h2 {
             font-size: 2.5rem;
-            color: #ffffff;
-            margin-bottom: 20px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
-            animation: fadeIn 1.5s ease-in-out;
         }
 
-        /* 网格布局 */
         .link-container {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
             gap: 25px;
-            margin-top: 20px;
         }
 
-        /* 按钮卡片样式 */
         .link-card {
-            background-color: #1c1c1c;
-            color: #ffffff;
-            border-radius: 20px;
-            padding: 35px 25px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 18px;
+            padding: 2rem 1.5rem;
             text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, filter 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
             cursor: pointer;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
             position: relative;
             overflow: hidden;
         }
 
-        /* 卡片悬浮效果 */
         .link-card:hover {
-            transform: translateY(-12px);
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
-            background-color: #333;
-            filter: brightness(1.15);
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            background: var(--card-hover);
         }
 
         .link-card i {
-            font-size: 4.5rem;
-            margin-bottom: 15px;
-            transition: color 0.3s ease, transform 0.3s ease;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            transition: transform 0.4s ease;
         }
 
-        .link-card p {
-            font-size: 1.25rem;
-            margin: 0;
-            font-weight: 600;
-            text-transform: uppercase;
+        .link-card:hover i {
+            transform: scale(1.1) rotate(5deg);
         }
 
-        /* 不同分类卡片颜色 */
-        .link-card.new-road { background-color: #4CAF50; }
-        .link-card.cet { background-color: #FF5722; }
-        .link-card.ai { background-color: #009688; }
-        .link-card.entertainment { background-color: #FFC107; }
-        .link-card.network { background-color: #3F51B5; }
-        .link-card.video { background-color: #E91E63; }
-        .link-card.learning { background-color: #9C27B0; }
-        .link-card.tools { background-color: #FF9800; }
-
-        /* 渐显动画 */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        .link-card.new-road { background: linear-gradient(135deg, #74ebd5, #ACB6E5); }
+        .link-card.cet { background: linear-gradient(135deg, #4bc0c8, #cadcfe); }
+        .link-card.ai { background: linear-gradient(135deg, #00c9ff, #92fe9d); }
+        .link-card.entertainment { background: linear-gradient(135deg, #f6d365, #fda085); }
+        .link-card.network { background: linear-gradient(135deg, #a18cd1, #fbc2eb); }
+        .link-card.video { background: linear-gradient(135deg, #fbc2eb, #a6c1ee); }
+        .link-card.learning { background: linear-gradient(135deg, #c3cfe2, #c3cfe2); }
+        .link-card.tools { background: linear-gradient(135deg, #e2c4c4, #a6dcef); }
 
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(50px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* 响应式设计 */
         @media (max-width: 768px) {
-            h1 { font-size: 3.5rem; }
-            h2 { font-size: 2rem; }
-            .link-container { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
-        }
-
-        @media (max-width: 500px) {
-            h1 { font-size: 2.5rem; }
-            h2 { font-size: 1.5rem; }
-            .link-container { grid-template-columns: 1fr; }
-        }
-        body {
-            padding-top: 70px;
-        }
-
-        .container {
-            height: calc(100vh - 90px);
-            margin-top: 0;
-            overflow-y: auto;
-        }
-
-        @media (max-width: 768px) {
-            body {
-                padding-top: 60px;
+            .hamburger-menu {
+                display: block;
             }
+            
+            .directory {
+                flex-direction: column;
+                align-items: flex-start;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+            }
+            
+            .directory.active {
+                max-height: 500px;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
             .container {
-                height: calc(100vh - 80px);
-                padding: 30px 20px;
+                margin: 1rem auto;
+                padding: 1.5rem;
             }
         }
     </style>
-    <!-- 添加图标库（Font Awesome）-->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-<!-- 以下代码请放入前端html文件的body内 -->
-<script src="https://agi-dev-platform-web.bj.bcebos.com/ai_apaas/embed/output/embedLiteSDK.js?responseExpires=0"></script>
-<script>
-    new EmbedLiteSDK({appId: '25ccecb0-5c26-4b9a-8bf5-cb7074d11cc8', code: 'embed3IsMSAcsDpiyfmyUtCOD'});
-</script>
-  <!-- 目录 -->
-<div class="directory">
-    <a href="#new-road">
-        <i class="fas fa-road"></i> 新路
-    </a>
-    <a href="#cet">
-        <i class="fas fa-graduation-cap"></i> 考证
-    </a>
-    <a href="#ai">
-        <i class="fas fa-robot"></i> 在线AI
-    </a>
-    <a href="#entertainment">
-        <i class="fas fa-film"></i> 娱乐
-    </a>
-    <a href="#network">
-        <i class="fas fa-network-wired"></i> 网络知识平台
-    </a>
-    <a href="#video">
-        <i class="fas fa-video"></i> 视频平台
-    </a>
-    <a href="#learning">
-        <i class="fas fa-book"></i> 学习平台
-    </a>
-    <a href="#tools">
-        <i class="fas fa-tools"></i> 工具
-    </a>
-</div>
+    <div class="hamburger-menu" id="hamburger">☰</div>
+    
+    <div class="directory" id="directory">
+        <a href="#new-road"><i class="fas fa-road"></i> 新路</a>
+        <a href="#cet"><i class="fas fa-graduation-cap"></i> 考证</a>
+        <a href="#ai"><i class="fas fa-robot"></i> 在线AI</a>
+        <a href="#entertainment"><i class="fas fa-film"></i> 娱乐</a>
+        <a href="#network"><i class="fas fa-network-wired"></i> 网络知识平台</a>
+        <a href="#video"><i class="fas fa-video"></i> 视频平台</a>
+        <a href="#learning"><i class="fas fa-book"></i> 学习平台</a>
+        <a href="#tools"><i class="fas fa-tools"></i> 工具</a>
+    </div>
 
     <div class="container" id="main-container">
         <h1>小振快捷网址首页</h1>
-
-
+        
         <!-- 新路 -->
         <section id="new-road">
             <h2>新路</h2>
@@ -263,7 +224,7 @@
                     <i class="fas fa-wikipedia-w"></i>
                     <p>Wiki</p>
                 </div>
-                 <div class="link-card new-road" onclick="window.open('http://1.85.6.2:8100/', '_blank')">
+                <div class="link-card new-road" onclick="window.open('http://1.85.6.2:8100/', '_blank')">
                     <i class="fas fa-wikipedia-w"></i>
                     <p>maxkb</p>
                 </div>
@@ -283,8 +244,8 @@
                     <i class="fas fa-headset"></i>
                     <p>云客服</p>
                 </div>
-                      <div class="link-card new-road" onclick="window.open('https://userwzking.github.io/wz.html', '_blank')">
-                     <i class="fas fa-cogs"></i>
+                <div class="link-card new-road" onclick="window.open('https://userwzking.github.io/wz.html', '_blank')">
+                    <i class="fas fa-cogs"></i>
                     <p>wz</p>
                 </div>
             </div>
@@ -388,11 +349,11 @@
                     <i class="fab fa-tiktok"></i>
                     <p>抖音</p>
                 </div>
-                 <div class="link-card video" onclick="window.open('https://wz.xzin.top/', '_blank')">
+                <div class="link-card entertainment" onclick="window.open('https://wz.xzin.top/', '_blank')">
                     <i class="fab fa-vid"></i>
                     <p>博客1</p>
                 </div>
-                 <div class="link-card video" onclick="window.open('https://xxz.xzin.top/', '_blank')">
+                <div class="link-card entertainment" onclick="window.open('https://xxz.xzin.top/', '_blank')">
                     <i class="fab fa-vid"></i>
                     <p>博客2</p>
                 </div>
@@ -492,33 +453,33 @@
         </section>
     </div>
 
-<script>
-// 禁止右键菜单
-document.addEventListener('contextmenu', e => e.preventDefault());
+    <script>
+        // 响应式菜单逻辑
+        document.addEventListener('DOMContentLoaded', () => {
+            const dir = document.getElementById('directory');
+            const hamburger = document.getElementById('hamburger');
+            
+            hamburger.addEventListener('click', (e) => {
+                e.stopPropagation();
+                dir.classList.toggle('active');
+            });
+            
+            document.addEventListener('click', (e) => {
+                if (window.innerWidth <= 768 && !e.target.closest('.directory') && !e.target.is(hamburger)) {
+                    dir.classList.remove('active');
+                }
+            });
 
-// 禁用开发者工具快捷键
-const forbidKeys = {
-  F12: true,
-  'Ctrl+Shift+I': true,
-  'Ctrl+Shift+J': true,
-  'Ctrl+Shift+C': true
-};
-
-document.addEventListener('keydown', (e) => {
-  const keyComb = `${e.ctrlKey ? 'Ctrl+' : ''}${e.shiftKey ? 'Shift+' : ''}${e.key}`;
-  if (forbidKeys[e.key] || forbidKeys[keyComb]) e.preventDefault();
-});
-
-// 防调试检测
-(function() {
-  const re = /x/;
-  console.log(re);
-  re.toString = function() {
-    document.body.innerHTML = '检测到开发者工具，操作被禁止！';
-    window.location.reload();
-    return '';
-  };
-})();
-</script>
+            // 禁用右键菜单
+            document.addEventListener('contextmenu', e => e.preventDefault());
+            
+            // 禁用开发者工具快捷键
+            document.addEventListener('keydown', (e) => {
+                if ((e.ctrlKey && e.shiftKey && ['I','J','C'].includes(e.key)) || e.key === 'F12') {
+                    e.preventDefault();
+                }
+            });
+        });
+    </script>
 </body>
 </html>
